@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+    <head>
+        <meta charset = "utf-8">
+        <title>CampusBake Online Pre-Order</title>
+    </head>
+    <body>
+
+        <!-- HEADER: bakery name (h1) with a slogan inside an inline span -->
+         <div id = "header">
+            <h1>CampusBake&reg; <span>Fresh from our oven to your lecture hall!</span></h1>
+         </div>
+
+         <!-- NAVIGATION: three inline links separated by" | " -->
+          <div id = "nav">
+            <a href = "#content">Order</a> | <a href ="#sidebar">Price List</a> | <a href ="#footer">Contact</a>
+          </div>
+
+          <!-- CONTENT: Introduction paragraph and order form -->
+           <div id ="content">
+            <h2>Welcome to CampusBake</h2>
+
+         <!-- Introduction paragraph with four different inline elements: strong, em, span and a-->
+          <p>Hungry between classes? Pre-order your <strong>cupcakes</strong> and <em>cake slices</em> online,
+          <span>pick them up fresh on campus</span>, and see our <a href="#sidebar">price list</a> before you order</p>
+
+          <h2>Order Form</h2>
+
+          <!-- Div wrapping the order form -->
+          <div>
+          <!-- The oninput attribute recalculates the total price every time any form value changes. Number() converts the values to numbers so they are added/multiplied, not joined as text. -->
+          <form action="order.php" method="post" oninput="total.value = (Number(cupcakes.value) * 3 + Number(slices.value) * 5).toFixed(2)">
+
+         <!-- Customer details: name, phone and email -->
+         <h3>Your Details</h3>
+         <p>
+            <label for="custname">Name:</label>
+            <input type="text" id="custname" name="custname" placeholder="Enter your full name" required autofocus>
+         </p>
+         <p>
+            <label for="phone">Phone number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g. 012-3456789" required>
+         </p>
+         <p>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="e.g. name@example.com" required>
+         </p>
+
+         <!-- Pick-up date and time -->
+          <h3>Pick-up</h3>
+          <p>
+            <label for="pickdate">Pick-up date:</label>
+            <input type="time" id="picktime" name="picktime">
+          </p>
+          
+          <!-- Cake preferences: flavour, icing colour, sweetness -->
+           <h3>Preferences</h3>
+           <p>
+            <label for="flavour">Flavour:</label>
+            <input type="text" id="flavour" name="flavour" list="flavours" placeholder="Choose or type a flavour">
+           </p>
+           <datalist id="flavours">
+           <option value="Chocolate">
+           <option value="Vanilla">
+           <option value="Strawberry">
+           <option value="Matcha">
+           <option value="Red Velvet">
+           </datalist>
+           <p>
+            <label for="icing">Icing colour:</label>
+            <input type="color" id="icing" name="icing" value="#ffc0cb">
+           </p>
+           <p>
+            <label for="sweet">Sweetness level (1-5):</label>
+            <input type="range" id="sweet" name="sweet" min="1" max="5" step="1" value="3">
+           </p>
+
+           <!-- Price Calculator: two number inputs (min 0,default 0) and an output element. The output's "for" lists the ids of the input it is calculated from.-->
+            <h3>Price Calculator</h3>
+            <p>
+                <label for="cupcakes">Cupcakes (RM&nbsp;3.00 each):</label>
+                <input type="number" id="cupcakes" name="cupcakes" min="0" value="0">
+            </p>
+            <p>
+                <label for="slices">Cake Slices (RM&nbsp;5.00 each):</label>
+                <input type="number" id="slices" name="slices" min="0" value="0">
+            </p>
+            <p>
+                Total price: RM&nbsp;<output name="total" for="cupcakes slice">0.00</output>
+            </p>
+            
+            <!-- Submit Button-->
+             <p>
+                <input type="submit" value="Place Order">
+             </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- SIDEBAR: price list (list) and promotion using entities -->
+     <div id="sidebar">
+        <h2>Price List</h2>
+        <ul>
+            <li>Cupcake &ndash; RM&nbsp;3.00</li>
+            <li>Cake Slice &ndash; RM&nbsp;5.00</li>
+        </ul>
+        <p>Promotion: Orders &gt; 10 pieces get a freed drink!</p>
+        <p>Pre-orders must be placed at least 1 day in advance (&lt; 24 hours not accepted).</p>
+    </div>
+
+    <!-- FOOTER: copyright and brand entitites -->
+     <div id="footer">
+        <p>&copy; 2026 CampusBake&reg; &ndash; Cake &amp; Cupcakes for students &amp; Staff</p>
+     </div>
+
+    </body>
+    </html>

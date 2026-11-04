@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ticket Booking</title>
+</head>
+<body>
+
+    <!-- ERRORS FOUND AND FIXED: 
+     Error 1(line 1):missing "html" in the doctype. Fixed to: <!DOCTYPE html>
+     Error 2(line 9):wrong nesting, </h1> closed before </span>. Fixed to: <span>...</span></h1>
+     Error 3(line 11 and 36):<span> (inline) used to wrap the whole content section. Changed to <div id="content">...</div>
+     Error 4(line 13):"<" typed directly in the text. Fixed to the entity &lt;
+     Error 5(line 13):"&amp" is missing the semicolon. Fixed to &amp;
+     Error 6(line 14):the oninput formula joins the values as text (2 + 3 gives "23"). FIxed using number() so the total is 5
+     Error 7(line 18):type "emial" is a typo. Fixed to: type="email" (and added required so an empty e-mail is rejected)
+     Error 8(line 22):list="movies" does not match the datalist id="movielist". Fixed so both use "movielist"
+     Error 9(line 32):range has min="5" max="1" (reversed). fixed to: min="1" max:"5"
+     Error 10(line 33):output for="adult kid" refers to a non-existent id "kid". Fixed to for="adult child"
+     Error 11(line 38): &Copy; has the wrong case. Fixed to &copy;
+     also: number inputs given min="0" so negative tickets are not allowed.
+     -->
+
+     <!-- HEADER (Error 2 fixed: span now closes before h1) -->
+      <div id="header">
+        <h1>e-Ticket <span>Your Campus Cinema</span><h1>
+      </div>
+
+      <!-- CONTENT (Error 3 fixed: div instead of span)-->
+       <div> id="content>
+        <h2>Book Your Ticket</h2>
+        <!-- Error 4 and 5 fixed: &lt; and &amp; -->
+         <p>Promotion: tickets &lt; RM10 for students &amp; staff!</p>
+
+         <!-- Error 6 fixed: Number() makes the values add up as number (total ticket).
+              Extension: the price output is also calculated (adult RM12, child RM8) -->
+        <form action="booking.php" oninput="total.value = Number(adult.value) + Number(child.value); price.value = Number(adult.value) * 12 + Number(child.value) * 8">
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required autofocus><br>
+
+        <!-- Error 7 fixed: type="email" (typo corrected) and required added -->
+<label for="email">E-mail:</label>
+<input type="email" id="email" name="email" placeholder="e.g. name@example.com" required><br>
+ 
+<!-- NEW (extension): phone number with placeholder and required -->
+<label for="phone">Phone number:</label>
+<input type="tel" id="phone" name="phone" placeholder="e.g. 012-3456789" required><br>
+ 
+<label for="date">Show date:</label>
+<input type="date" id="date" name="date"><br>
+ 
+<!-- NEW (extension): show time -->
+<label for="showtime">Show time:</label>
+<input type="time" id="showtime" name="showtime"><br>
+ 
+<!-- Error 8 fixed: list attribute now matches the datalist id -->
+<label for="movie">Movie:</label>
+<input id="movie" name="movie" list="movielist"><br>
+<datalist id="movielist">
+<option value="Space Rangers">
+<option value="Kampung Comedy">
+<option value="Midnight Library">
+</datalist>
+ 
+<label for="adult">Adult tickets:</label>
+<input type="number" id="adult" name="adult" min="0" value="0"><br>
+<label for="child">Child tickets:</label>
+<input type="number" id="child" name="child" min="0" value="0"><br>
+ 
+<!-- Error 9 fixed: min=1, max=5 -->
+<label for="rating">Rate our service:</label>
+<input type="range" id="rating" name="rating" min="1" max="5" step="1" value="3"><br>
+ 
+<!-- Error 10 fixed: for="adult child" (matches the real ids) -->
+Total tickets: <output name="total" for="adult child">0</output><br>
+ 
+<!-- NEW (extension): total price output (adult RM12, child RM8) -->
+Total price: RM <output name="price" for="adult child">0</output><br>
+ 
+<input type="submit" value="Book Now">
+</form>
+</div>
+ 
+<!-- NEW (extension): SIDEBAR listing movies. Each item uses strong (title),
+     span (age rating) and a (trailer link) -->
+<div id="sidebar">
+<h2>Now Showing</h2>
+<ul>
+<li><strong>Space Rangers</strong> <span>(PG13)</span> <a href="https://example.com/trailers/space-rangers">Watch trailer</a></li>
+<li><strong>Kampung Comedy</strong> <span>(U)</span> <a href="https://example.com/trailers/kampung-comedy">Watch trailer</a></li>
+<li><strong>Midnight Library</strong> <span>(P13)</span> <a href="https://example.com/trailers/midnight-library">Watch trailer</a></li>
+</ul>
+</div>
+ 
+<!-- FOOTER (Error 11 fixed: &copy;). NEW: &reg;, &lt; and &amp; added -->
+<div id="footer">
+<p>&copy; 2026 CineKampus. All rights reserved.</p>
+<p>e-Ticket&reg; &ndash; Campus Cinema &lt; RM10 every Tuesday for students &amp; staff</p>
+</div>
+</body>
+</html>
+ 
+
+        
