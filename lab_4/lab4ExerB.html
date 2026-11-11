@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Part 2 (step 7): viewport meta tag added -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>e-Café Campus</title>
+<!-- Part 2 (step 5): external style sheet with the navigation bar styles -->
+<link rel="stylesheet" href="cafe.css">
+<style>
+/* Link states: correct order is link, visited, hover, active */
+a:link {color: #1A5276;}
+a:visited {color: #7D3C98;}
+a:hover {color: #E67E22;}
+a:active {color: #C0392B;}
+h1 {text-decoration: overline;}
+p {color: #333333; text-align: justify;}
+.intro {
+  font-size: 18px;
+  background-color: #FDEBD0;
+}
+.highlight {
+  font-weight: bold;
+  color: #C0392B;
+}
+</style>
+</head>
+<body>
+<!--
+Errors found in the given code:
+Error 1 (Line 6): type="text/css" is not needed on style in HTML5 (removed).
+Error 2 (Line 7): HTML comment syntax is used inside the CSS. CSS comments must be /* ... */.
+Error 3 (Line 9): list-style-type: no is invalid. It should be none, so the bullets are removed.
+Error 4 (Lines 14-15): Link states are in the wrong order. :visited must come before :hover, or hover does not work on visited links.
+Error 5 (Line 17): text-decoration: overlined is invalid. It should be overline.
+Error 6 (Line 18): Missing colon in color #333333. It should be color: #333333.
+Error 7 (Lines 19-21): The #intro rule is missing its closing brace, which breaks the rule after it.
+Error 8 (Lines 19 and 41): The CSS uses the id selector #intro but the HTML uses class="intro". Changed to the .intro class selector.
+Error 9 (Line 22): highlight is missing the dot. It should be .highlight (class selector).
+Error 10 (Line 34): href="menu" does not link to the section. It should be href="#menu".
+Error 11 (Lines 42 and 46): The id "item" is used twice. IDs must be unique, so class="item" is used.
+Error 12 (Line 53): The video has no controls attribute, so it cannot be played.
+Error 13 (Line 54): type="mp4" is wrong. It should be type="video/mp4".
+-->
+
+<!-- Page header -->
+<header>
+  <h1>e-Café Campus</h1>
+</header>
+
+<!-- Navigation bar  -->
+<nav>
+  <ul>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#feedback">Feedback</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Menu section with promotion prices (Part 2, step 6) -->
+<section id="menu">
+  <h2>Today's Menu</h2>
+  <p class="intro">Freshly brewed coffee and local delights every day.</p>
+  <article class="item">
+    <h3>Kopi Tarik</h3>
+    <p>Only <span class="old-price">RM 4.50</span> <span class="highlight">RM 3.50</span></p>
+  </article>
+  <article class="item">
+    <h3>Nasi Lemak</h3>
+    <p>Only <span class="old-price">RM 6.50</span> <span class="highlight">RM 5.00</span></p>
+  </article>
+</section>
+
+<!-- Video section with figure and caption (Part 2, step 7) -->
+<section id="video">
+  <h2>Watch Our Story</h2>
+  <figure>
+    <video width="400" height="300" controls>
+      <source src="cafe.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <figcaption>Our story: from the first cup to your table.</figcaption>
+  </figure>
+</section>
+
+<!-- Feedback section with form (Part 2, step 8) -->
+<section id="feedback">
+  <h2>Give Us Feedback</h2>
+  <form class="feedback-form" action="#" method="post">
+    <p>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </p>
+    <p>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email">
+    </p>
+
+    <fieldset>
+      <legend>Visit type</legend>
+      <input type="radio" id="dinein" name="visit" value="dine-in">
+      <label for="dinein">Dine-in</label>
+      <input type="radio" id="takeaway" name="visit" value="take-away">
+      <label for="takeaway">Take-away</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Favourite items</legend>
+      <input type="checkbox" id="kopi" name="fav" value="kopi-tarik">
+      <label for="kopi">Kopi Tarik</label>
+      <input type="checkbox" id="nasi" name="fav" value="nasi-lemak">
+      <label for="nasi">Nasi Lemak</label>
+      <input type="checkbox" id="roti" name="fav" value="roti-canai">
+      <label for="roti">Roti Canai</label>
+    </fieldset>
+
+    <p><input type="submit" value="Submit"></p>
+  </form>
+</section>
+
+<!-- Footer with copyright and address  -->
+<footer id="contact">
+  <p>&copy; 2026 e-Café Campus</p>
+  <address>
+    Contact us: <a href="mailto:hello@ecafecampus.com">hello@ecafecampus.com</a>
+  </address>
+</footer>
+</body>
+</html>
