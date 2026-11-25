@@ -1,0 +1,52 @@
+/* Page style */
+body { 
+    font-family: Arial, sans-serif;
+     background: #eef2f6;
+      margin: 20px; }
+h2 { 
+    color: #1d4e72; }
+
+/* Form box */
+form {
+     background: #fff;
+     border: 1px solid #d5dde5;
+     border-radius: 6px; 
+     padding: 14px; 
+     width: 260px; }
+input { 
+     margin: 4px 0 10px;
+     padding: 4px;
+     width: 95%; }
+
+/* Buttons with hover effect */
+button {
+     padding: 8px 14px; 
+     background: #2a7ab9; 
+     color: #fff;
+     border: none;
+     border-radius: 4px; 
+     cursor: pointer;
+     margin-top: 6px; }
+
+button:hover {
+     background: #1d4e72; }
+
+/* Result text */
+#result, #checkedOn {
+     font-weight: bold;
+     margin: 8px 0; }
+#checkedOn { 
+    color: green; }
+
+/* Grade table: borders, padding and header background */
+table { 
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #fff; }
+th, td {
+     border: 1px solid #aab7c4;
+     padding: 8px 24px;
+     text-align: center; }
+th {
+     background: #1d4e72;
+     color: #fff; }

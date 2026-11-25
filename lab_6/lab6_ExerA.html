@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rock, Paper, Scissors</title>
+  <!-- Link the external stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header: game title and short instruction -->
+  <header>
+    <h1>Rock, Paper, Scissors</h1>
+    <p>Enter your name, click Start Game, then choose Rock, Paper or Scissors.</p>
+  </header>
+
+  <!-- Player section: name input and Start Game button -->
+  <section class="card" id="playerSection">
+    <label for="playerName">Your name:</label>
+    <input type="text" id="playerName">
+    <button onclick="startGame()">Start Game</button>
+    <p id="welcome"></p>
+  </section>
+
+  <!-- Game section: choice buttons and the two images -->
+  <section class="card" id="gameSection">
+    <div class="choices">
+      <button onclick="playRound('rock')">Rock</button>
+      <button onclick="playRound('paper')">Paper</button>
+      <button onclick="playRound('scissors')">Scissors</button>
+    </div>
+    <div class="arena">
+      <div><h3>You</h3><img id="playerImg" src="rock.png" alt="Player choice"></div>
+      <span class="vs">VS</span>
+      <div><h3>Computer</h3><img id="computerImg" src="rock.png" alt="Computer choice"></div>
+    </div>
+  </section>
+
+  <!-- Result section: round result and scoreboard -->
+  <section class="card" id="resultSection">
+    <p id="result"></p>
+    <p class="score">Wins: 
+     <span id="wins">0</span> &nbsp; Losses: <span id="losses">0</span> &nbsp; Draws: <span id="draws">0</span></p>
+  </section>
+
+  <!-- History section: one row per round -->
+  <section class="card" id="historySection">
+    <h2>History</h2>
+    <table id="history">
+      <tr><th>Round</th><th>You</th><th>Computer</th><th>Result</th></tr>
+    </table>
+    <p id="summary"></p>
+    <button onclick="showSummary()">Show Summary</button>
+    <button onclick="resetGame()">Reset</button>
+  </section>
+
+  <!-- Footer: start time and copyright -->
+  <footer>
+    <p id="startTime"></p>
+    <p>&copy; 2026 Computer Science Club</p>
+  </footer>
+
+  <!-- Link the external JavaScript file before </body> -->
+  <script src="game.js"></script>
+</body>
+</html>

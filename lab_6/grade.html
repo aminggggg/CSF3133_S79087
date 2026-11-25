@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+<title>Grade Calculator</title>
+
+<!-- Extension: link the external stylesheet -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <h2>Student Grade Calculator</h2>
+
+
+          <!-- Fix: onsubmit must be "return checkMark()" so that false stops the form from submitting -->
+        <form name="gradeForm" onsubmit="return checkMark()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="mark">Mark (0-100):</label>
+        <input type="text" id="mark" name="mark"><br>
+             <button type="submit">Check Grade</button>
+
+<!-- Extension: Random Mark button (type="button" so it does not submit the form) -->
+<button type="button" onclick="randomMark()">Random Mark</button>
+</form>
+<p id="result"></p>
+
+<!-- Extension: date and time of checking -->
+<p id="checkedOn"></p>
+
+<!-- Fix: function name is showTable (capital T) -->
+<button onclick="showTable()">Show Grade Table</button>
+<div id="tableContainer"></div>
+      <!-- Fix: the file is named grade.js, not grades.js -->
+       <script src="grade.js"></script>
+</body>
+</html>
